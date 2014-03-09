@@ -1,0 +1,7 @@
+Expense {
+	owner : userID
+	payer : userID
+	owers : [userID]
+	ammount : number
+	note : string
+}

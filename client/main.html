@@ -1,0 +1,55 @@
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trip Expense</title>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="brand" href="#">Spring Break!</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		{{> users}}
+	</div>
+</body>
+
+<template name="users">
+	{{#if currentUser}}
+		{{> dash}}
+	{{else}}
+		<div class="row-fluid">
+			<div class="span2">
+				{{loginButtons}}
+			</div>
+		</div>
+	{{/if}}
+</template>
+<template name="dash">
+	<div class="row-fluid text-center">
+		Total spent: ${{total}} |
+		{{oweGramar me currentUser._id}}
+	</div>
+	{{> addForm}}
+	<div class="row-fluid">
+		<div class="span8">
+			<h2>Expenses</h2>
+			{{> table}}
+		</div>
+		<div class="span4">
+			<h2>Payouts</h2>
+			{{#each getOwes}}
+			<div>
+				{{oweGramar ammount user}}
+			</div>
+			{{/each}}
+		</div>
+	</div>
+</template>

@@ -1,0 +1,28 @@
+<template name="table">
+	{{#if showAll}}
+		<a href="#" id="showLess"><i class="icon-minus"></i>Only show expenses involving me</a>
+	{{else}}
+		<a href="#" id="showMore"><i class="icon-plus"></i>Show all expenses</a>
+	{{/if}}
+	<table class="table">
+		<tr>
+			<th>Ammount</th>
+			<th>Paid by</th>
+			<th>Splitting between</th>
+			<th>Note</th>
+			<th></th>
+		</tr>
+		{{#each allexpenses}}
+			{{> expenseRow}}
+		{{/each}}
+	</table>
+</template>
+<template name="expenseRow">
+	<tr>
+		<td>${{ammount}}</td>
+		<td>{{getUsername payer}}</td>
+		<td>{{owersList}}</td>
+		<td>{{note}}</td>
+		<td><a href="#"><i class="icon-remove"></i></a></td>
+	</tr>
+</template>
