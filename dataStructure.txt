@@ -1,7 +1,14 @@
 Expense {
+	trip : tripID
 	owner : userID
 	payer : userID
 	owers : [userID]
 	ammount : number
 	note : string
+}
+Trip {
+	name : string
+	title : string
+	code : string
+	members : [userID]
 }
