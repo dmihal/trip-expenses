@@ -1,0 +1,21 @@
+<template name="totals">
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each users}}
+				{{> totalRow}}
+			{{/each}}
+		</tbody>
+	</table>
+</template>
+<template name="totalRow">
+	<tr class={{class}}>
+		<td>{{getUsername _id}}</td>
+		<td>{{total}}</td>
+	</tr>
+</template>

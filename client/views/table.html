@@ -18,7 +18,7 @@
 	</table>
 </template>
 <template name="expenseRow">
-	<tr>
+	<tr data-id="{{_id}}">
 		<td>${{ammount}}</td>
 		<td>{{getUsername payer}}</td>
 		<td>{{owersList}}</td>
