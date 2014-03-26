@@ -11,6 +11,16 @@ Template.totals.created = function(){
 
       totalDep.changed();
     },
+    changed: function (newDoc, oldDoc){
+      oldDoc.owers.forEach(function(ower){
+        totals[ower] = (totals[ower]||0) - (oldDoc.ammount / oldDoc.owers.length);
+      });
+      newDoc.owers.forEach(function(ower){
+        totals[ower] = (totals[ower]||0) + (newDoc.ammount / newDoc.owers.length);
+      });
+
+      totalDep.changed();
+    },
     removed: function (doc) {
       totals[doc.payer] = (totals[doc.payer]||0) + doc.ammount;//(doc.ammount / doc.owers.length);
       doc.owers.forEach(function(ower){
