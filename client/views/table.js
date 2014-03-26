@@ -35,6 +35,19 @@ Template.expenseRow.owersList = function(){
   }
 };
 Template.expenseRow.events({
+  'click .owersList' : function(e,template){
+    template.find('.owersList').style.display="none";
+    template.find('.editform').style.display="block";
+  },
+  'click .saveowers' : function(e,template){
+    template.find('.owersList').style.display="block";
+    template.find('.editform').style.display="none";
+
+    var owers = template.findAll('input:checked').map(function(box){
+      return box.value;
+    });
+    Expenses.update(this._id, {$set: {owers: owers}});
+  },
   'click .icon-remove' : function (e) {
     Expenses.remove(this._id);
     e.preventDefault();

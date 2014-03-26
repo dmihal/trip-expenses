@@ -1,0 +1,10 @@
+<template name="checkboxUsers">
+	<div>
+		{{#each users}}
+			<label>
+					<input type="checkbox" value="{{_id}}" checked />
+				{{getUsername _id}}
+			</label>
+		{{/each}}
+	</div>
+</template>

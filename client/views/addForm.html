@@ -20,12 +20,7 @@
 		</div>
 		<div class="span4 form-inline" id="owesField">
 			<h4>Split between</h4>
-			{{#each users}}
-				<label>
-					<input type="checkbox" value="{{_id}}" checked />
-					{{getUsername _id}}
-				</label>
-			{{/each}}
+			{{> checkboxUsers}}
 		</div>
 	</div>
 </template>

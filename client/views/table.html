@@ -21,7 +21,15 @@
 	<tr data-id="{{_id}}">
 		<td>${{ammount}}</td>
 		<td>{{getUsername payer}}</td>
-		<td>{{owersList}}</td>
+		<td>
+			<div class="owersList">
+				{{owersList}}
+			</div>
+			<div class="form-inline editform">
+				{{> checkboxUsers this}}
+				<button type="button" class="btn btn-default saveowers">Save</button>
+			</div>
+		</td>
 		<td>{{note}}</td>
 		<td><a href="#"><i class="icon-remove"></i></a></td>
 	</tr>
