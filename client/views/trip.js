@@ -1,14 +1,14 @@
 
-Template.dash.total = function(){
+Template.trip.total = function(){
   var total = 0;
-  Expenses.find().map(function(doc){
+  Expenses.find({trip:Session.get('currentTrip')}).map(function(doc){
     total += doc.ammount;
   });
   return total;
 };
-Template.dash.me = function(){
+Template.trip.me = function(){
   var total = 0;
-  Expenses.find().map(function(doc){
+  Expenses.find({trip:Session.get('currentTrip')}).map(function(doc){
     if (doc.payer === Meteor.userId()) {
       total -= doc.ammount;
     }
@@ -18,16 +18,22 @@ Template.dash.me = function(){
   });
   return total;
 };
+Template.trip.events({
+  'click #backBtn' : function(e){
+    e.preventDefault();
+    Session.set('currentTrip',null);
+  }
+});
 
-Template.dash.getOwes = function(){
+Template.trip.getOwes = function(){
   var result = {};
   // For each expense where I owe money...
-  Expenses.find({owers : Meteor.userId()}).map(function (doc) {
+  Expenses.find({trip:Session.get('currentTrip'), owers : Meteor.userId()}).map(function (doc) {
     // ...subtract my share of the expense
     result[doc.payer] = (result[doc.payer]|0) - (doc.ammount / doc.owers.length);
   });
   // For each expense where I paid...
-  Expenses.find({payer: Meteor.userId()}).map(function (doc) {
+  Expenses.find({trip:Session.get('currentTrip'), payer: Meteor.userId()}).map(function (doc) {
     // ...and for each person that is splitting the cost...
     doc.owers.forEach(function(ower){
       // ...add their share of the expense

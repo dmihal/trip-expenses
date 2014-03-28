@@ -23,7 +23,11 @@
 
 <template name="users">
 	{{#if currentUser}}
-		{{> dash}}
+		{{#if currentTrip}}
+			{{> trip}}
+		{{else}}
+			{{> trips}}
+		{{/if}}
 	{{else}}
 		<div class="row-fluid">
 			<div class="span2">
