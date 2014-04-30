@@ -1,10 +1,10 @@
 Template.checkboxUsers.created = function(){
-	this.id = this.data._id;
+	this.id = this.data && this.data._id;
 }
 Template.checkboxUsers.rendered = function(){
 	if(this.id){
 		var owers = Expenses.findOne(this.id).owers;
-		this.findAll('input').forEach(function(box){
+		this.findAll('input').each(function(box){
 			if (owers.indexOf(box.value)!=-1) {
 				box.checked = true;
 			} else {

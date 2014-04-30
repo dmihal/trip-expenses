@@ -6,10 +6,10 @@ Accounts.ui.config({
   passwordSignupFields : "USERNAME_ONLY"
 });
 
-Handlebars.registerHelper('getUsername', function(context, options){
+UI.registerHelper('getUsername', function(context, options){
   return getUsername(context);
 });
-Handlebars.registerHelper('oweGramar',function (ammount, userid) {
+UI.registerHelper('oweGramar',function (ammount, userid) {
   var amtStr = Math.abs(ammount).toFixed(2);
   if (userid === Meteor.userId()) {
     return ammount > 0 ?
