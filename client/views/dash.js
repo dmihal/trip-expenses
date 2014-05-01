@@ -4,7 +4,7 @@ Template.dash.total = function(){
   Expenses.find().map(function(doc){
     total += doc.ammount;
   });
-  return total;
+  return total.toFixed(2);
 };
 Template.dash.me = function(){
   var total = 0;
