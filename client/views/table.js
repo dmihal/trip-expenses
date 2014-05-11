@@ -40,12 +40,16 @@ Template.expenseRow.events({
     template.find('.editform').style.display="block";
   },
   'click .saveowers' : function(e,template){
-    template.find('.owersList').style.display="block";
-    template.find('.editform').style.display="none";
-
     var owers = template.findAll('input:checked').map(function(){
       return this.value;
     }).toArray();
+    if (owers.length == 0){
+      return;
+    }
+
+    template.find('.owersList').style.display="block";
+    template.find('.editform').style.display="none";
+
     Expenses.update(this._id, {$set: {owers: owers}});
   },
   'click .icon-remove' : function (e) {
