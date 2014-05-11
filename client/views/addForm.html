@@ -13,7 +13,7 @@
 			<h4>Paid by</h4>
 			{{#each users}}
 				<label>
-					<input type="radio" name="paid" value="{{_id}}" />
+					<input type="radio" name="paid" value="{{_id}}" checked={{isMe}} />
 					{{getUsername _id}}
 				</label>
 			{{/each}}

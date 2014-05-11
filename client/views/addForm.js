@@ -26,3 +26,6 @@ Template.addForm.events({
     $("#addForm").val('');
   }
 });
+Template.addForm.isMe = function(){
+  return this._id === Meteor.user()._id;
+}
