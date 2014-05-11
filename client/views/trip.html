@@ -1,12 +1,13 @@
 <template name="trip">
-	<div class="row-fluid">
-		<div class="pull-left">
+	<div class="row-fluid header">
+		<div class="backbtn">
 			<a href="#" id="backBtn">Back to trips</a>
 		</div>
-		<div class="text-center">
-			Total spent: ${{total}} |
+		<div class="push-right text-right">
+			Total spent: ${{total}}<br />
 			{{oweGramar me currentUser._id}}
 		</div>
+		<h1>{{title}}</h1>
 	</div>
 	{{> addForm}}
 	<div class="row-fluid">

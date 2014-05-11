@@ -18,6 +18,9 @@ Template.trip.me = function(){
   });
   return total;
 };
+Template.trip.title = function(){
+  return Trips.findOne(Session.get('currentTrip')).title;
+}
 Template.trip.events({
   'click #backBtn' : function(e){
     e.preventDefault();
