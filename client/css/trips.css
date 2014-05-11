@@ -1,0 +1,10 @@
+.trips li {
+	display: inline-block;
+	background: #EEF;
+}
+.tripCard {
+	width: 200px;
+	height: 100px;
+	display: block;
+	padding: 15px;
+}

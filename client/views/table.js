@@ -43,9 +43,9 @@ Template.expenseRow.events({
     template.find('.owersList').style.display="block";
     template.find('.editform').style.display="none";
 
-    var owers = template.findAll('input:checked').map(function(box){
-      return box.value;
-    });
+    var owers = template.findAll('input:checked').map(function(){
+      return this.value;
+    }).toArray();
     Expenses.update(this._id, {$set: {owers: owers}});
   },
   'click .icon-remove' : function (e) {
