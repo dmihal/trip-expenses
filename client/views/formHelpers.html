@@ -2,9 +2,13 @@
 	<div>
 		{{#each users}}
 			<label>
-					<input type="checkbox" value="{{_id}}" checked />
+				{{> dynamicCheckbox user=this expense=../_id}}
 				{{getUsername _id}}
 			</label>
 		{{/each}}
 	</div>
+</template>
+
+<template name="dynamicCheckbox">
+	<input type="checkbox" value="{{user._id}}" checked={{isChecked}} />
 </template>
