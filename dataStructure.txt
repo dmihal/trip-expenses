@@ -9,7 +9,8 @@ Expense {
 Trip {
 	name : string
 	title : string
-	code : string
 	members : [userID]
 	creator : userID
+
+	/code : string
 }
