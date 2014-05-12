@@ -3,7 +3,9 @@ Template.trips.userTrips = function(){
 };
 Template.trips.events({
   'click .tripCard' : function(e){
-    Session.set('currentTrip',e.target.dataset.id);
+  	var id = e.target.dataset.id;
+    Session.set('currentTrip',id);
+    history.pushState({}, "page 2", Trips.findOne(id).name);
     e.preventDefault();
   }
 });

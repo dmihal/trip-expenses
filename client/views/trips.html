@@ -1,6 +1,6 @@
 <template name="trips">
-	<div>
-		<ul class="trips">
+	<div class="row-fluid">
+		<ul class="trips span12">
 			{{#each userTrips}}
 				<li>
 					<a href="#" class="tripCard" data-id="{{_id}}">
@@ -9,5 +9,11 @@
 				</li>
 			{{/each}}
 		</ul>
+	</div>
+	<div class="well row-fluid">
+		<div class="span12">
+			<input id="titleField" placeholder="Title"/>
+			<button id="addTrip" type="button" class="btn btn-primary">Create Trip</button>
+		</div>
 	</div>
 </template>

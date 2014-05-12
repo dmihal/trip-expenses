@@ -25,6 +25,7 @@ Template.trip.events({
   'click #backBtn' : function(e){
     e.preventDefault();
     Session.set('currentTrip',null);
+    history.pushState({}, "page 2", '/');
   }
 });
 
