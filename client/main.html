@@ -29,10 +29,14 @@
 			{{> trips}}
 		{{/if}}
 	{{else}}
-		<div class="row-fluid">
-			<div class="span2">
-				{{loginButtons}}
+		{{#if currentTrip}}
+			{{> publicTrip}}
+		{{else}}
+			<div class="row-fluid">
+				<div class="span2">
+					{{loginButtons}}
+				</div>
 			</div>
-		</div>
+		{{/if}}
 	{{/if}}
 </template>
