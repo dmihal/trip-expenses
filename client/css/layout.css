@@ -1,0 +1,17 @@
+@media (min-width: 979px) {
+	body {
+		padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+	}
+}
+
+body {
+	background-color: #f1f1f1;
+}
+
+.card {
+	border: 0px;
+	border-bottom: 3px solid #e5e5e5!important;
+	background-color: #fff;
+	margin: 0 0 8px;
+	padding: 8px 10px;
+}

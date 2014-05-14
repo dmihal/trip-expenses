@@ -1,0 +1,25 @@
+
+.header {
+	background: url(background.jpg) #ccc;
+	background-size: cover;
+	height: 130px;
+	color: #eee;
+}
+.backbtn a {
+	display: inline-block;
+	color: #ddd;
+	background: rgba(50,50,50,0.3);
+	padding: 5px;
+}
+.backbtn a:hover {
+	color: #eee;
+	background: rgba(50,50,50,0.7);
+	text-decoration: none;
+}
+#addForm {
+	padding: 0;
+}
+#addForm > div {
+	padding: 8px 10px;
+}
+
