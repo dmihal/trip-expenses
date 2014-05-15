@@ -21,3 +21,7 @@ body {
 .navbar-inner{
 	text-align: center;
 }
+.bottom {
+	position: absolute;
+	bottom: 0;
+}
