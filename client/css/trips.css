@@ -3,6 +3,7 @@ ul.trips li {
 	list-style: none;
 	display: block;
 	float: left;
+	margin: 0 6px 4px;
 }
 .tripCard {
 	display: block;
