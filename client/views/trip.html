@@ -1,21 +1,23 @@
 <template name="trip">
-	<div class="row-fluid header">
-		<div class="backbtn">
-			<a href="#" id="backBtn">Back to trips</a>
+	<div class="row-fluid">
+		<div class="header card span12">
+			<div class="backbtn">
+				<a href="#" id="backBtn"><i class="icon-arrow-left icon-white"></i> Back to trips</a>
+			</div>
+			<div class="pull-right text-right">
+				Total spent: ${{total}}<br />
+				{{oweGramar me currentUser._id}}
+			</div>
+			<h1>{{title}}</h1>
 		</div>
-		<div class="pull-right text-right">
-			Total spent: ${{total}}<br />
-			{{oweGramar me currentUser._id}}
-		</div>
-		<h1>{{title}}</h1>
 	</div>
 	{{> addForm}}
 	<div class="row-fluid">
-		<div class="span8">
+		<div class="card span8">
 			<h2>Expenses</h2>
 			{{> table}}
 		</div>
-		<div class="span4">
+		<div class="card span4">
 			<h2>Payouts</h2>
 			{{#each getOwes}}
 			<div>
