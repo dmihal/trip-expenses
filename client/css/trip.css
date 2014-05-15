@@ -22,4 +22,12 @@
 #addForm > div {
 	padding: 8px 10px;
 }
-
+.owersList {
+	cursor: pointer;
+}
+.owersList:hover {
+	background: #EEF;
+}
+.editform {
+	display: none;
+}

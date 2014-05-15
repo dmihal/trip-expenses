@@ -2,7 +2,7 @@ var totals = {};
 var totalDep = new Deps.Dependency();
 
 Template.totals.created = function(){
-  Expenses.find().observe({
+  Expenses.find({trip:Session.get('currentTrip')}).observe({
     added: function (doc) {
       totals[doc.payer] = (totals[doc.payer]||0) - doc.ammount;//(doc.ammount / doc.owers.length);
       doc.owers.forEach(function(ower){
@@ -33,7 +33,8 @@ Template.totals.created = function(){
 }
 
 Template.totals.users = function(){
-  return Meteor.users.find();
+  var trip = Trips.findOne(Session.get('currentTrip'));
+  return Meteor.users.find({_id : {$in : trip.members}});
 }
 
 Template.totalRow.total = function(){
