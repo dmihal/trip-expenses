@@ -2,8 +2,8 @@ Session.setDefault('showAll',true);
 
 Template.table.allexpenses = function(){
   return Session.get('showAll') ? 
-    Expenses.find() :
-    Expenses.find({$or: [{payer: Meteor.userId()}, {owers: Meteor.userId()}]});
+    Expenses.find({trip:Session.get('currentTrip')} ) :
+    Expenses.find({trip:Session.get('currentTrip'), $or: [{payer: Meteor.userId()}, {owers: Meteor.userId()}]});
 };
 Template.table.showAll = function(){
   return Session.get('showAll');

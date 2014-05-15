@@ -1,5 +1,6 @@
 Template.addForm.users = function () {
-  return Meteor.users.find();
+  var trip = Trips.findOne(Session.get('currentTrip'));
+  return Meteor.users.find({_id : {$in : trip.members}});
 }
 Template.addForm.events({
   'click #addbtn' : function(){
@@ -21,6 +22,7 @@ Template.addForm.events({
       owers : owers,
       ammount: ammount,
       note : note,
+      trip : Session.get('currentTrip'), 
       date : new Date()
     });
     $("#addForm").val('');

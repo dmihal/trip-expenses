@@ -23,35 +23,20 @@
 
 <template name="users">
 	{{#if currentUser}}
-		{{> dash}}
+		{{#if currentTrip}}
+			{{> trip}}
+		{{else}}
+			{{> trips}}
+		{{/if}}
 	{{else}}
-		<div class="row-fluid">
-			<div class="span2">
-				{{> loginButtons}}
+		{{#if currentTrip}}
+			{{> publicTrip}}
+		{{else}}
+			<div class="row-fluid">
+				<div class="span2">
+					{{> loginButtons}}
+				</div>
 			</div>
-		</div>
+		{{/if}}
 	{{/if}}
-</template>
-<template name="dash">
-	<div class="row-fluid text-center">
-		Total spent: ${{total}} |
-		{{oweGramar me currentUser._id}}
-	</div>
-	{{> addForm}}
-	<div class="row-fluid">
-		<div class="span8">
-			<h2>Expenses</h2>
-			{{> table}}
-		</div>
-		<div class="span4">
-			<h2>Payouts</h2>
-			{{#each getOwes}}
-			<div>
-				{{oweGramar ammount user}}
-			</div>
-			{{/each}}
-			<h2>Totals</h2>
-			{{> totals}}
-		</div>
-	</div>
 </template>

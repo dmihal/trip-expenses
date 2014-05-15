@@ -1,0 +1,24 @@
+<template name="trips">
+	<div class="row-fluid">
+		<ul class="trips span12">
+			{{#each userTrips}}
+				<li>
+					<a href="/{{name}}" class="tripCard" data-id="{{_id}}">
+						<div class="cardTitle">
+							{{title}}
+						</div>
+						<div class="cardInfo">
+							{{memberCount}} Members
+						</div>
+					</a>
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+	<div class="well row-fluid">
+		<div class="span12">
+			<input id="titleField" placeholder="Title"/>
+			<button id="addTrip" type="button" class="btn btn-primary">Create Trip</button>
+		</div>
+	</div>
+</template>

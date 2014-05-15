@@ -1,0 +1,27 @@
+
+ul.trips li {
+	list-style: none;
+	display: block;
+	float: left;
+}
+.tripCard {
+	display: block;
+	width: 250px;
+	height: 120px;
+	padding: 15px;
+	background: #EEF;
+	position: relative;
+	color: #333;
+}
+.tripCard:hover{
+	text-decoration: none;
+	background: #EDF;
+	color: #444;
+}
+.cardTitle{
+	font-size: 18pt;
+}
+.cardInfo{
+	position: absolute;
+	bottom: 15px;
+}
