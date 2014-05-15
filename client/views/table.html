@@ -4,17 +4,21 @@
 	{{else}}
 		<a href="#" id="showMore"><i class="icon-plus"></i>Show all expenses</a>
 	{{/if}}
-	<table class="table">
-		<tr>
-			<th>Ammount</th>
-			<th>Paid by</th>
-			<th>Splitting between</th>
-			<th>Note</th>
-			<th></th>
-		</tr>
-		{{#each allexpenses}}
-			{{> expenseRow}}
-		{{/each}}
+	<table class="table expenseTable">
+		<thead>
+			<tr>
+				<th>Ammount</th>
+				<th>Paid by</th>
+				<th>Splitting between</th>
+				<th>Note</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#each allexpenses}}
+				{{> expenseRow}}
+			{{/each}}
+		</tbody>
 	</table>
 </template>
 <template name="expenseRow">

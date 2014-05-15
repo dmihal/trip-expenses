@@ -31,3 +31,59 @@
 .editform {
 	display: none;
 }
+
+@media (max-width: 768px) {
+	.expenseTable thead {
+		display: none;
+	}
+	.expenseTable tbody tr{
+		display: block;
+		margin-bottom: 5px;
+		border-bottom: 1px solid #dddddd;
+	}
+	.expenseTable tbody td{
+		padding: 1px 0;
+		border: 0;
+	}
+	.expenseTable tbody td:nth-child(1){
+		display: block;
+		font-size: 18pt;
+	}
+	.expenseTable tbody td:nth-child(2){
+		display: block;
+	}
+	.expenseTable tbody td:nth-child(2)::before{ 
+		content:"Paid By: ";
+		font-weight: bold;
+		color: #777;
+	}
+	.expenseTable tbody td:nth-child(3){
+		display: block;
+	}
+	.expenseTable tbody td:nth-child(3) div{
+		margin-left: 10px;
+	}
+	.expenseTable tbody td:nth-child(3)::before{
+		content:"Splitting Between: ";
+		font-weight: bold;
+		color: #777;
+	}
+	.expenseTable tbody td:nth-child(4){
+		display: block;
+	}
+	.expenseTable tbody td:nth-child(4)::before{
+		content:"Note: ";
+		font-weight: bold;
+		color: #777;
+	}
+	.expenseTable tbody td:nth-child(5){
+		display: block;
+	}
+	.expenseTable tbody td:nth-child(5) i::after{
+		content:"Delete";
+		color: #333;
+		padding-left: 16px;
+		font-style: normal;
+	}
+}
+
