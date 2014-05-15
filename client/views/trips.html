@@ -1,6 +1,23 @@
 <template name="trips">
 	<div class="row-fluid">
+		<div class="card span8">
+			<h2>Create New Trip</h2>
+			<input id="tripTitle" placeholder="Title"/><br />
+			<input id="tripName" placeholder="Name" patern="[a-z\-]+" /><br />
+			<button id="newTrip" type="button" class="btn btn-primary">Create Trip</button>
+			<div class="alert" id="newTripErr"></div>
+		</div>
+		<div class="card span4">
+			<h2>Join Existing Trip</h2>
+			<input id="joinName" placeholder="Trip Name" /><br />
+			<input id="joinCode" placeholder="Trip Passphrase" /><br />
+			<button id="joinTrip" type="button" class="btn btn-primary">Join Trip</button>
+			<div class="alert" id="joinErr"></div>
+		</div>
+	</div>
+	<div class="row-fluid">
 		<ul class="trips span12">
+			<h2>Trips</h2>
 			{{#each userTrips}}
 				<li>
 					<a href="/{{name}}" class="tripCard card" data-id="{{_id}}">
@@ -14,11 +31,5 @@
 				</li>
 			{{/each}}
 		</ul>
-	</div>
-	<div class="row-fluid">
-		<div class="card span12">
-			<input id="titleField" placeholder="Title"/>
-			<button id="addTrip" type="button" class="btn btn-primary">Create Trip</button>
-		</div>
 	</div>
 </template>
