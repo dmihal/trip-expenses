@@ -3,13 +3,13 @@ ul.trips li {
 	list-style: none;
 	display: block;
 	float: left;
+	margin: 0 6px 4px;
 }
 .tripCard {
 	display: block;
 	width: 250px;
 	height: 120px;
 	padding: 15px;
-	background: #EEF;
 	position: relative;
 	color: #333;
 }
@@ -17,6 +17,8 @@ ul.trips li {
 	text-decoration: none;
 	background: #EDF;
 	color: #444;
+	border-bottom: 3px solid #c5c5c5!important;
+
 }
 .cardTitle{
 	font-size: 18pt;

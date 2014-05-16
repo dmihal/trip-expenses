@@ -4,14 +4,14 @@ Template.addForm.users = function () {
 }
 Template.addForm.events({
   'click #addbtn' : function(){
-    var ammount = $("#ammountField").val() | 0;
+    var ammount = +($("#ammountField").val()) || 0;
     var payer = $("#paidField input:checked").val();
     var owers = [];
     $("#owesField input:checked").each(function(){
       owers.push(this.value);
     });
     var note = $("#noteField").val();
-    if (!(ammount|0) || !payer || !owers.length) {
+    if ((ammount<=0) || !payer || !owers.length) {
       alert('Complete all the fields');
       return false;
     }
@@ -28,3 +28,6 @@ Template.addForm.events({
     $("#addForm").val('');
   }
 });
+Template.addForm.isMe = function(){
+  return this._id === Meteor.user()._id;
+}

@@ -1,0 +1,14 @@
+<template name="checkboxUsers">
+	<div>
+		{{#each users}}
+			<label>
+				{{> dynamicCheckbox user=this expense=../_id}}
+				{{getUsername _id}}
+			</label>
+		{{/each}}
+	</div>
+</template>
+
+<template name="dynamicCheckbox">
+	<input type="checkbox" value="{{user._id}}" checked={{isChecked}} />
+</template>

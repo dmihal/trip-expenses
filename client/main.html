@@ -6,12 +6,7 @@
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="brand" href="#">Spring Break!</a>
+				<a class="brand" href="#"><img src="/logo30.png" />GroupBundle</a>
 			</div>
 		</div>
 	</div>
@@ -29,10 +24,14 @@
 			{{> trips}}
 		{{/if}}
 	{{else}}
-		<div class="row-fluid">
-			<div class="span2">
-				{{loginButtons}}
+		{{#if currentTrip}}
+			{{> publicTrip}}
+		{{else}}
+			<div class="row-fluid">
+				<div class="span2">
+					{{> loginButtons}}
+				</div>
 			</div>
-		</div>
+		{{/if}}
 	{{/if}}
 </template>

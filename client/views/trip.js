@@ -4,7 +4,7 @@ Template.trip.total = function(){
   Expenses.find({trip:Session.get('currentTrip')}).map(function(doc){
     total += doc.ammount;
   });
-  return total;
+  return total.toFixed(2);
 };
 Template.trip.me = function(){
   var total = 0;
@@ -24,8 +24,7 @@ Template.trip.title = function(){
 Template.trip.events({
   'click #backBtn' : function(e){
     e.preventDefault();
-    Session.set('currentTrip',null);
-    history.pushState({}, "Home", '/');
+    setTrip(null);
   }
 });
 
@@ -34,14 +33,14 @@ Template.trip.getOwes = function(){
   // For each expense where I owe money...
   Expenses.find({trip:Session.get('currentTrip'), owers : Meteor.userId()}).map(function (doc) {
     // ...subtract my share of the expense
-    result[doc.payer] = (result[doc.payer]|0) - (doc.ammount / doc.owers.length);
+    result[doc.payer] = (result[doc.payer]||0) - (doc.ammount / doc.owers.length);
   });
   // For each expense where I paid...
   Expenses.find({trip:Session.get('currentTrip'), payer: Meteor.userId()}).map(function (doc) {
     // ...and for each person that is splitting the cost...
     doc.owers.forEach(function(ower){
       // ...add their share of the expense
-      result[ower] = (result[ower]|0) + (doc.ammount / doc.owers.length);
+      result[ower] = (result[ower]||0) + (doc.ammount / doc.owers.length);
     });
   });
   

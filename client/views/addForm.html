@@ -1,9 +1,9 @@
 <template name="addForm">
-	<div class="row-fluid well" id="addForm">
+	<div class="row-fluid card" id="addForm">
 		<div class="span4">
 			<div class="input-prepend">
 				<span class="add-on">$</span>
-				<input type="number" step="0.01" placeholder="Ammount" id="ammountField" />
+				<input type="number" step="0.01" min="0" placeholder="Ammount" id="ammountField" />
 			</div>
 			<br />
 			<textarea id="noteField" placeholder="Note" ></textarea><br />
@@ -13,19 +13,14 @@
 			<h4>Paid by</h4>
 			{{#each users}}
 				<label>
-					<input type="radio" name="paid" value="{{_id}}" />
+					<input type="radio" name="paid" value="{{_id}}" checked={{isMe}} />
 					{{getUsername _id}}
 				</label>
 			{{/each}}
 		</div>
 		<div class="span4 form-inline" id="owesField">
 			<h4>Split between</h4>
-			{{#each users}}
-				<label>
-					<input type="checkbox" value="{{_id}}" checked />
-					{{getUsername _id}}
-				</label>
-			{{/each}}
+			{{> checkboxUsers}}
 		</div>
 	</div>
 </template>

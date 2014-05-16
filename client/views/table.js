@@ -20,10 +20,38 @@ Template.table.events({
 });
 
 Template.expenseRow.owersList = function(){
-  var usernames = this.owers.map(getUsername);
-  return usernames.join(', ');
+  var numUsers = Meteor.users.find().count();
+  if (this.owers.length == numUsers){
+    return 'Everyone'
+  } else if(numUsers > 3 && this.owers.length == (numUsers-1)){
+    var missing = Meteor.users.findOne({_id : {$nin: this.owers }});
+    return 'Everyone except ' + getUsername(missing._id);
+  } else if(numUsers > 4 && this.owers.length == (numUsers-2)){
+    var missing = Meteor.users.find({_id : {$nin: this.owers }}).fetch();
+    return 'Everyone except ' + getUsername(missing[0]._id) + ' and ' + getUsername(missing[1]._id);
+  } else {
+    var usernames = this.owers.map(getUsername);
+    return usernames.join(', ');
+  }
 };
 Template.expenseRow.events({
+  'click .owersList' : function(e,template){
+    template.find('.owersList').style.display="none";
+    template.find('.editform').style.display="block";
+  },
+  'click .saveowers' : function(e,template){
+    var owers = template.findAll('input:checked').map(function(){
+      return this.value;
+    }).toArray();
+    if (owers.length == 0){
+      return;
+    }
+
+    template.find('.owersList').style.display="block";
+    template.find('.editform').style.display="none";
+
+    Expenses.update(this._id, {$set: {owers: owers}});
+  },
   'click .icon-remove' : function (e) {
     Expenses.remove(this._id);
     e.preventDefault();
