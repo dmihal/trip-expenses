@@ -1,6 +1,6 @@
 getUsername = function(username){
   var user = Meteor.users.findOne(username);
-  return (user.profile && user.profile.name) || user.username;
+  return (user && ((user.profile && user.profile.name) || user.username)) || "user";
 }
 Accounts.ui.config({
   passwordSignupFields : "USERNAME_ONLY"
