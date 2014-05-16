@@ -20,7 +20,8 @@ Template.table.events({
 });
 
 Template.expenseRow.owersList = function(){
-  var numUsers = Meteor.users.find().count();
+  var trip = Trips.findOne(Session.get('currentTrip'));
+  var numUsers = Meteor.users.find({_id : {$in : trip.members}}).count();
   if (this.owers.length == numUsers){
     return 'Everyone'
   } else if(numUsers > 3 && this.owers.length == (numUsers-1)){
