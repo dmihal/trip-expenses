@@ -7,14 +7,24 @@
 			{{> table}}
 		</div>
 		<div class="card span4">
-			<h2>Payouts</h2>
-			{{#each getOwes}}
-			<div>
-				{{oweGramar ammount user}}
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#individual" data-toggle="tab">Individual Payments</a></li>
+				<li><a href="#pooled" data-toggle="tab">Pooled Payments</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane active" id="individual">
+					<h2>Payouts</h2>
+					{{#each getOwes}}
+					<div>
+						{{oweGramar ammount user}}
+					</div>
+					{{/each}}
+				</div>
+				<div class="tab-pane" id="pooled">
+					<h2>Totals</h2>
+					{{> totals}}
+				</div>
 			</div>
-			{{/each}}
-			<h2>Totals</h2>
-			{{> totals}}
 		</div>
 	</div>
 </template>
