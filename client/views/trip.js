@@ -1,11 +1,4 @@
 
-Template.trip.events({
-  'click #backBtn' : function(e){
-    e.preventDefault();
-    setTrip(null);
-  }
-});
-
 Template.trip.getOwes = function(){
   var result = {};
   // For each expense where I owe money...

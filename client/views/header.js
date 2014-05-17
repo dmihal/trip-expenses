@@ -20,3 +20,10 @@ Template.header.me = function(){
 Template.header.title = function(){
   return Trips.findOne(Session.get('currentTrip')).title;
 }
+
+Template.header.events({
+  'click #backBtn' : function(e){
+    e.preventDefault();
+    setTrip(null);
+  }
+});
