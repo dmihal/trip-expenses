@@ -1,11 +1,9 @@
 <template name="publicTrip">
-	<div class="row-fluid header">
-		<h1>{{title}}</h1>
-	</div>
+	{{> header}}
 	<div class="row-fluid">
-		<div class="span8 offset2 hero-unit">
+		<div class="span8 offset2 card">
 			<h2>Sign in to join the "{{title}}" trip</h2>
-			<div>{{loginButtons}}</div>
+			<div>{{> loginButtons}}</div>
 		</div>
 	</div>
 </template>
