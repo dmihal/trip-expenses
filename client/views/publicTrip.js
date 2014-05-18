@@ -1,3 +1,4 @@
 Template.publicTrip.title = function(){
-  return Trips.findOne(Session.get('currentTrip')).title;
+  var trip = Trips.findOne(Session.get('currentTrip'));
+  return trip && trip.title;
 };
