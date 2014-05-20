@@ -26,5 +26,9 @@ Template.header.events({
   'click #backBtn' : function(e){
     e.preventDefault();
     setTrip(null);
+  },
+  'click #inviteBtn' : function(e){
+    e.preventDefault();
+    Modal.show(Template.invitePopup,Trips.findOne(Session.get('currentTrip')));
   }
 });

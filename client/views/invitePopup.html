@@ -1,0 +1,26 @@
+<template name="invitePopup">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Invite friends</h3>
+	</div>
+	<div class="modal-body">
+		<h2>Two ways for your friends to join your group</h2>
+		<div class="twocol">
+			<ol>
+				<li>Go to {{url}}</li>
+				<li>Sign in with Facebook</li>
+				<li>Enter the secret code <strong>{{code}}</strong> when prompted</li>
+			</ol>
+		</div>
+		<div class="twocol">
+			<img src="{{qrcode}}" />
+			<ol>
+				<li>Scan the QR code above on a mobile device</li>
+				<li>Sign in with Facebook</li>
+			</ol>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+	</div>
+</template>
