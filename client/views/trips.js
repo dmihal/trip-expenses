@@ -7,7 +7,7 @@ Template.trips.memberCount = function(){
 var generatedTripName = "";
 Template.trips.events({
   'click .tripCard' : function(e){
-    var id = e.target.dataset.id;
+    var id = e.currentTarget.dataset.id;
     setTrip(id);
     e.preventDefault();
   },
